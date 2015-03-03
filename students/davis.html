@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+
+<html> 
+    
+    <head> 
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    </head>
+	
+	<style> 
+	.initDiv{
+		height: 1px; 
+		width: 50vh;
+		background-color: red; 
+		position: relative;
+		right: 300px;
+		left: 500px;
+		top: 300px;
+
+//		-webkit-transition-property: all;
+		-webkit-animation: circleSpin 3s infinite;
+	}
+	
+	.circleDiv{
+		height: 100px; 
+		width: 100px;
+		border-radius: 100px; 
+		background-color: blue;
+		position: absolute;
+		opacity: .2;
+		right: -50px;
+		top: -50px;
+
+	-webkit-animation: slidingLeftRight 3s  infinite alternate;
+	-webkit-transition-timing-function: ease-in-out;
+	}
+
+
+	@-webkit-keyframes slidingLeftRight{
+    0%   {background: blue; right:-20%; top:-50px;}    
+    50%  {background: blue; right:85%; top:-50px;}
+    100% {background: red; right: -15%; top:-50px;}
+}
+	@-webkit-keyframes circleSpin{
+/*		from { 
+            -webkit-transform: rotate3d(0deg, 0deg, 0deg); 
+        } 
+		to { 
+            -webkit-transform: rotate3d(270deg, 60deg, 360deg); 
+        }
+
+
+		*/
+		
+from {  -webkit-transform-origin: 0% 0% ; }
+  to {  -webkit-transform: rotate(360deg); 
+		-webkit-transform-origin: 0% 0% ;
+		}
+	}
+
+	</style> 
+        
+<body> 
+<div> 
+<button type ="button" class = "btn_copy"> copy </button> 
+<div> 
+
+<div class = "initDiv">
+
+	<div class = "circleDiv">
+		
+	</div> 
+
+</div> 
+
+
+
+
+		
+        
+		
+		
+<script>
+
+	
+	$('body').on('click', '.btn_copy',function(){
+		var circleClone = $('.circleDiv').clone().removeClass('.circleDiv').css({
+			top: '200px'
+		
+		});
+		$('body').append(circleClone);
+	
+	});
+	
+	
+</script>
+
+</body> 
+
+
+
+
+</html> 

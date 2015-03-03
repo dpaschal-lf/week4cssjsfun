@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+    <button type="button">COPY</button>
+    <div class="border_line"><div class="circle"></div></div>
+        
+<style>
+.button {
+    position: absolute;
+}
+.border_line {
+    width: 50vh;
+    border: 1px solid #b26666;
+    position: relative;
+    margin: 50% 50%;
+    -webkit-animation: rotating 5s linear infinite;
+}   
+.circle {
+    width: 100px;
+    height: 100px;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    position: absolute; 
+    background-color: maroon;
+    -webkit-animation: myfirst 5s infinite;
+    animation: myfirst 5s infinite;
+    transform: translateY(-50%) translateX(-50%);
+    
+    
+}
+@-webkit-keyframes rotating {
+    from{-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(360deg);}
+}
+@-webkit-keyframes myfirst {
+    0% {left: 0px; top:0px;}
+    25% {background: #FFD1DC; left: 100%; top: 0px;}
+    100% {left: 0px; top: 0px;}
+    
+}
+    
+</style>
+    
+    
+    
+    
+    
+    
+    
+</body>
+</html>

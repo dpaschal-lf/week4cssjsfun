@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+  <html>
+      <head>
+          <meta charset="utf-8">
+          <title>Student Grades</title>
+          
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <style>
+            body {
+              background: #f7fbfc; /* Old browsers */
+              background: -moz-radial-gradient(center, ellipse cover,  #f7fbfc 0%, #d9edf2 40%, #add9e4 100%); /* FF3.6+ */
+              background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#f7fbfc), color-stop(40%,#d9edf2), color-stop(100%,#add9e4)); /* Chrome,Safari4+ */
+              background: -webkit-radial-gradient(center, ellipse cover,  #f7fbfc 0%,#d9edf2 40%,#add9e4 100%); /* Chrome10+,Safari5.1+ */
+              background: -o-radial-gradient(center, ellipse cover,  #f7fbfc 0%,#d9edf2 40%,#add9e4 100%); /* Opera 12+ */
+              background: -ms-radial-gradient(center, ellipse cover,  #f7fbfc 0%,#d9edf2 40%,#add9e4 100%); /* IE10+ */
+              background: radial-gradient(ellipse at center,  #f7fbfc 0%,#d9edf2 40%,#add9e4 100%); /* W3C */
+
+              font-family: Helvetica;
+              position: relative;
+            }
+            button {
+              border: none;
+              height: 40px;
+              width: 80px;
+              font-family: Helvetica;
+              font-size: 16px;
+              color: #fff;
+              background: #add9e4;
+              margin: 0px 10px 0px 0px;
+              float: right;
+              }
+            #animateMeContainer {
+              width: 50vh;
+              height: 1px;
+              background-color: red;
+              margin: 20% auto;
+              -webkit-animation: rotating 2s linear infinite;
+              -moz-animation: rotating 2s linear infinite;
+              -ms-animation: rotating 2s linear infinite;
+              -o-animation: rotating 2s linear infinite;
+              animation: rotating 2s linear infinite;
+              }
+
+              @-webkit-keyframes rotating /* Safari and Chrome */ {
+              from {
+                -ms-transform: rotate(0deg);
+              -ms-transform-origin: 0% 0%;
+              -moz-transform: rotate(0deg);
+              -moz-transform-origin: 0% 0%;
+              -webkit-transform: rotate(0deg);
+              -webkit-transform-origin: 0% 0%;
+              -o-transform: rotate(0deg);
+              -o-transform-origin: 0% 0%;
+              transform: rotate(0deg);
+              transform-origin: 0% 0%;
+              }
+              to {
+                -ms-transform: rotate(360deg);
+                -ms-transform-origin: 0% 0%;
+                -moz-transform: rotate(360deg);
+                -moz-transform-origin: 0% 0%;
+                -webkit-transform: rotate(360deg);
+                -webkit-transform-origin: 0% 0%;
+                -o-transform: rotate(360deg);
+                -o-transform-origin: 0% 0%;
+                transform: rotate(360deg);
+                transform-origin: 0% 0%;
+              }
+              }
+              @keyframes rotating {
+              from {
+                -ms-transform: rotate(0deg);
+                -ms-transform-origin: 0% 0%;
+                -moz-transform: rotate(0deg);
+                -moz-transform-origin: 0% 0%;
+                -webkit-transform: rotate(0deg);
+                -webkit-transform-origin: 0% 0%;
+                -o-transform: rotate(0deg);
+                -o-transform-origin: 0% 0%;
+                transform: rotate(0deg);
+                transform-origin: 0% 0%;
+              }
+              to {
+                -ms-transform: rotate(360deg);
+                -ms-transform-origin: 0% 0%;
+                -moz-transform: rotate(360deg);
+                -moz-transform-origin: 0% 0%;
+                -webkit-transform: rotate(360deg);
+                -webkit-transform-origin: 0% 0%;
+                -o-transform: rotate(360deg);
+                -o-transform-origin: 0% 0%;
+                transform: rotate(360deg);
+                transform-origin: 0% 0%;
+              }
+              }
+              #animateMe {
+              width: 100px;
+              height: 100px;
+              background-color: #ddd;
+              border-radius: 100%;
+              position: relative;
+              z-index: 1001;
+              animation-duration: 3s;
+                animation-name: slidein;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+                -moz-animation-duration: 3s;
+                -moz-animation-name: slidein;
+                -moz-animation-iteration-count: infinite;
+                -moz-animation-direction: alternate;
+                -webkit-animation-duration: 3s;
+                -webkit-animation-name: slidein;
+                -webkit-animation-iteration-count: infinite;
+                -webkit-animation-direction: alternate;
+
+              }
+
+              @keyframes slidein {
+              from {
+                left: 100%;
+              bottom: 100%;
+              }
+
+              to {
+                left: 0%;
+              bottom: 0%;
+              }
+              }
+              @-moz-keyframes slidein {
+              from {
+                left: 100%;
+                bottom: 100%;
+              }
+
+              to {
+                left: 0%;
+                bottom: 0%;
+              }
+              }
+              @-webkit-keyframes slidein {
+              from {
+                left: 100%;
+                bottom: 100%;
+              }
+
+              to {
+                left: 0%;
+                bottom: 0%;
+              }
+              }
+
+              #push {
+              position: fixed;
+              left: 20%;
+              top: 70%;
+              cursor: pointer;
+              }
+          </style>
+      </head>
+      <body>
+          <div id="animateMeContainer">
+            <div id="animateMe"></div>
+          </div>
+          <button id="push">Clone</button>
+          
+          
+          <script src="js/jquery-2.1.3.min.js"></script>
+          <script src="js/main.js"></script>
+          <script>
+            var ary = [];
+            var copyThis = $("#animateMe");
+            var body = $("body");
+            $("#push").click(function(){
+              ary.push(copyThis.offset());
+              copyThis.css("left", "ary[0]", "top", "ary[1]");
+              copyThis.clone().appendTo(body);
+            });
+          </script>
+      </body>   
+  </html>
