@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Question 1</title>
+    <question>
+<!--Using either jQuery or core JS (jQuery preferred):
+<ul>
+<li>
+    Create a CSS animation including:
+<ul>
+<li>A div (1 pixel tall, 50vh WIDE (yes, VH used with width)</li>
+<li>In that div is another div, shaped like a circle (border radius!), approximately 100x100 pixels in size</li>
+<li>Animate the circle so that it goes back and forth between the left side of the parent div and the right side (check out “Making text slide across the browser window” at this <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_animations">link</a>)</li>
+</ul>
+   --> </question>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+<body>
+<style>
+    body{
+        height: 100vh;
+        width: 100vw;
+    }
+    .path_div{
+        height: 1px;
+        width: 50vh;
+        border: 1px solid rgba(0,0,0,.5);
+        font-size: 0px;
+        left: 50%;
+        top: 50%;
+        position: absolute;
+        -webkit-animation-name: rotate;
+        -webkit-animation-duration: 5s;
+        -webkit-animation-fill-mode: none;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-iteration-count: infinite; 
+        -webkit-transform-origin: 0% 0%;
+    }
+    .circle_div{
+        width: 10vw;
+        height: 10vw;
+        border-radius: 50%;
+        background-color: lavender;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        opacity: .5;
+    }
+    .circle_div_animation{
+        transform: translateY(-50%) translateX(-50%);
+        -webkit-animation-duration: 1s;
+        -webkit-animation-name: oscillate;
+        -webkit-animation-fill-mode: none;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-iteration-count: infinite; 
+        -webkit-animation-direction: alternate;
+
+    }
+
+    @-webkit-keyframes oscillate {
+      from{
+        left: 0%; 
+        background-color: red;
+      }
+
+      to {
+        left: 100%;
+        background-color: green;
+      }
+    }
+    @-webkit-keyframes rotate {
+        from { -webkit-transform: rotate(0deg); }
+        to { -webkit-transform: rotate(-360deg); }
+    }
+    #clone_button{
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        padding: 20px;
+
+    }
+
+</style>
+<div id="clone_button" class="btn btn-info">
+    Clone!
+</div>
+<div class="path_div">
+    <div class="circle_div circle_div_animation">
+    </div>
+</div>
+<script>
+    var clone_btn = $("#clone_button");
+    var source_circle = $(".circle_div");
+    var body = $("body");
+    clone_btn.click(function(){
+        var new_circle = source_circle.clone().removeClass("circle_div_animation");
+        new_circle.css({
+            left: source_circle.offset().left+"px",
+            top: source_circle.offset().top+"px",
+            backgroundColor: source_circle.css('background-color')
+        });
+        new_circle.hover(function(){
+            $(this).animate({opacity:0},1000,function(){ $(this).remove()});
+        });
+        body.append(new_circle);
+    });
+
+</script>
+
+
+
+</body>
+</html>
